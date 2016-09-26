@@ -1,0 +1,30 @@
+<h1>Device Listing</h1>
+
+<a class="ui primary button" href="/devices/new">Add New Device</a>
+
+<div>
+  <table class="ui celled table">
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>Brand</th>
+      <th>Model</th>
+      <th>Operating System</th>
+      <th>Users</th>
+      <th>Date</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% devices.forEach(function(device){ %>
+    <tr>
+      <td><%= device.name %></td>
+      <td><%= device.brand %></td>
+      <td><%= device.model %></td>
+      <td><%= device.os %></td>
+      <td><%= Array.isArray(device.users) ? device.users.join(', ') : '' %></td>
+      <td><%= device.date %></td>
+      <% }) %>
+    </tr>
+    </tbody>
+  </table>
+</div>

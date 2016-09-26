@@ -1,0 +1,16 @@
+<h1>View Device</h1>
+
+<div class="ui equal width grid">
+  <div class="four wide column">
+    <img class="ui wireframe image" src="/images/missing.png">
+  </div>
+  <div class="twelve wide column">
+    <p><%= device.name %></p>
+    <p><%= device.brand %></p>
+    <p><%= device.model %></p>
+    <p><%= device.os %></p>
+    <p><%= device.users.join(', ') %></p>
+    <p><%= device.date %></p>
+  </div>
+</div>
+

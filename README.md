@@ -50,3 +50,5 @@ Execute electron app
 ```
  npm start
 ```
+
+image from http://semantic-ui.com/

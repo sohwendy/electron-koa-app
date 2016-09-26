@@ -4,31 +4,35 @@ const app = electron.app
 // Module to create native browser window.
 const BrowserWindow = electron.BrowserWindow
 
+const koa = require('./koa')
+
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
-let mainWindow
+// let mainWindow
 
 // Express initialization
-var express = require('express')
-var server = express()
+//var express = require('express')
+//var server = express()
 
-server.use(express.static('public'));
 
-server.get('/', function (req, res) {
-  res.send('Hello World from Express executed in electron!');
-});
 
-server.listen(3000, function () {
-  console.log('Express running in electron and listening on port 3000!');
-});
+//server.use(express.static('public'));
+
+//server.get('/', function (req, res) {
+//  res.send('Hello World from Express executed in electron!');
+//});
+
+// server.listen(3000, function () {
+//   console.log('Express running in electron and listening on port 3000!');
+// });
 
 function createWindow () {
   // Create the browser window.
   mainWindow = new BrowserWindow({width: 800, height: 600, webPreferences: { nodeIntegration: false}})
 
   // and load the index.html of the app.
-  // mainWindow.loadURL('file://${__dirname}/index.html')
-  mainWindow.loadURL('http://127.0.0.1:3000/main.html')
+  mainWindow.loadURL(`file://${__dirname}/public/main.html`)
+  //mainWindow.loadURL('http://127.0.0.1:5000/public/main.html')
 
   // Open the DevTools.
   mainWindow.webContents.openDevTools()

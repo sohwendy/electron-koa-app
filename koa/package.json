@@ -1,0 +1,24 @@
+{
+  "name": "beanie",
+  "version": "0.0.1",
+  "description": "just a sample local server",
+  "main": "index.js",
+  "scripts": {
+    "start": "./node_modules/.bin/nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "co-fs": "^1.2.0",
+    "jquery": "^3.1.1",
+    "koa": "^1.2.4",
+    "koa-ejs": "^3.0.0",
+    "koa-formidable": "^1.0.0",
+    "koa-router": "^5.4.0",
+    "koa-static": "^2.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.10.2"
+  }
+}

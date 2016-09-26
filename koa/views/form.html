@@ -1,0 +1,14 @@
+<h1>Add New Device</h1>
+
+
+<form action="/devices/create" method="post" enctype="multipart/form-data">
+  <input type="text" name="name"/>
+  <input type="text" name="brand" required/>
+  <input type="text" name="model" required/>
+  <input type="text" name="os" required/>
+  <input type="text" name="users"/>
+  <input type="text" name="date" required/>
+  <input type="file" name="photo">
+  <input type="submit" value="Submit"/>
+</form>
+
