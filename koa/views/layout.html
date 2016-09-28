@@ -1,9 +1,16 @@
 <html>
   <head>
     <title>koa ejs</title>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap/latest/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
     <link rel="stylesheet" type="text/css" href="/semantic.css" />
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
+    <script type="text/javascript" src="/semantic.js"></script>
   </head>
   <body>
+
     <nav class="ui fixed inverted menu">
       <div class="ui container">
         <a href="/" class="header item"><i class="material-icons">home</i>Beanie</a>
@@ -18,7 +25,25 @@
         © 2016 Copyright. Beanie v0.1. This website is not responsive nor mobile friendly.
       </div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-    <script src="/semantic.js"></script>
+
   </body>
+  <script>
+    $('input[name="users"]').change(function() {
+      let checkgroup = $('input[name="users"]');
+      if (this.checked) {
+        $.each(checkgroup, function() { this.required = false; });
+      } else if (checkgroup.filter('[required]').size > 0) {
+        $.each(checkgroup, function() { this.required = true; });
+      }
+    });
+    $('input[name="date"]').daterangepicker(
+      {
+        locale: {
+          format: 'DD MMM YYYY'
+        },
+        singleDatePicker: true
+      }
+    );
+  </script>
+
 </html>

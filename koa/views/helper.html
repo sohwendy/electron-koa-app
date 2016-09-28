@@ -1,0 +1,18 @@
+<% getLabel = function(arrayHash, value) {
+  return value && arrayHash.find(function(item) {
+    return item.value == value
+  }).label;
+} %>
+
+<% getLabels = function(arrayHash, value) {
+  if (Array.isArray(value)) {
+    entries = value.map(function(v) {
+      return getLabel(arrayHash, v);
+    })
+    return entries ? entries.join(', ') : value.join(', ');
+  } else {
+    return getLabel(arrayHash, value);
+  }
+} %>
+
+<% getValue = function(value) { return value || '' } %>

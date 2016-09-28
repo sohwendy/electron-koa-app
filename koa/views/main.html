@@ -1,7 +1,7 @@
 <h1>Device Listing</h1>
 
 <a class="ui primary button" href="/devices/new">Add New Device</a>
-
+<% include helper.html %>
 <div>
   <table class="ui celled table">
     <thead>
@@ -18,10 +18,10 @@
     <% devices.forEach(function(device){ %>
     <tr>
       <td><%= device.name %></td>
-      <td><%= device.brand %></td>
+      <td><%= getLabels(display.brand, device.brand) %></td>
       <td><%= device.model %></td>
-      <td><%= device.os %></td>
-      <td><%= Array.isArray(device.users) ? device.users.join(', ') : '' %></td>
+      <td><%= getLabel(display.os, device.os) %></td>
+      <td><%= getLabels(display.users, device.users) %></td>
       <td><%= device.date %></td>
       <% }) %>
     </tr>

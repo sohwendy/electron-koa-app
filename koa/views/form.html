@@ -1,14 +1,69 @@
 <h1>Add New Device</h1>
 
+<form class="ui fluid form" action="/devices/create" method="post" enctype="multipart/form-data">
 
-<form action="/devices/create" method="post" enctype="multipart/form-data">
-  <input type="text" name="name"/>
-  <input type="text" name="brand" required/>
-  <input type="text" name="model" required/>
-  <input type="text" name="os" required/>
-  <input type="text" name="users"/>
-  <input type="text" name="date" required/>
-  <input type="file" name="photo">
-  <input type="submit" value="Submit"/>
+  <div class="field">
+    <input type="text" placeholder="Name" name="name" value="<%= device.name %>" required/>
+  </div>
+
+  <div class="field">
+    <select name="brand" class="ui selection dropdown">
+      <option value="">Select the Brand</option>
+      <% display.brand.forEach(function(o){ %>
+        <option name="brand" value="<%= o.value %>"><%= o.label %></option>
+      <% }) %>
+    </select>
+  </div>
+
+  <div class="field">
+    <input type="text" placeholder="Model" name="model"  value="<%= device.model %>" required/>
+  </div>
+
+  <div class="ui form">
+    <div class="grouped fields">
+      <label>Operating System</label>
+      <% display.os.forEach(function(o){ %>
+        <% var id = `radio-os-${o.value}`%>
+        <div class="field">
+          <div class="ui radio checkbox">
+            <input type="radio" name="os" id="<%= id %>" value="<%= o.value %>" <% if(o.value==device.os) { %> checked="checked" <% } %> required/>
+            <label for="<%= id %>"><%= o.label %></label>
+          </div>
+        </div>
+      <% }) %>
+    </div>
+  </div>
+
+  <div class="ui form">
+    <div class="grouped fields">
+      <label>Users</label>
+      <% display.users.forEach(function(user){ %>
+        <% var id=`check-users-${user.value}`%>
+
+        <div class="field">
+          <div class="ui checkbox">
+            <input type="checkbox" name="users" id="<%= id %>" value="<%= user.value %>" <% if(device.users.indexOf(user.value)){ %> checked <% } %> required>
+            <label for="<%= id %>"><%= user.label %></label>
+          </div>
+        </div>
+      <% }) %>
+    </div>
+  </div>
+
+  <div class="field">
+    <input name='date' type="text" placeholder="Date" value="<%= device.date %>" required/>
+  </div>
+
+  <input type="file" placeholder="Photo" name="photo" id="photo">
+
+  <div class="field">
+    <button class="ui button" type="submit">Submit</button>
+  </div>
+
 </form>
 
+<script>
+  $(document).ready(function() {
+    $('.ui.dropdown').dropdown();
+  }
+</script>
