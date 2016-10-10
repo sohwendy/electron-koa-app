@@ -1,0 +1,61 @@
+<h1>View Device</h1>
+<% include helper.html %>
+<div class="ui equal width grid big form">
+  <% if (device) { %>
+    <div class="five wide column">
+      <img class="ui wireframe image" id="field-photo" src="<%= getPhotoUrl(device.file) %>" >
+    </div>
+    <div class="eleven wide column ui list">
+        <div class="item" >
+          <div class="header">
+            Name
+          </div>
+          <div class="description" id="field-name"><%= device.name %></div>
+        </div>
+
+        <div class="item">
+          <div class="header">
+            Brand
+          </div>
+          <div class="description" id="field-brand"><%= getLabel(display.BRANDS, device.brand) %></div>
+        </div>
+
+        <div class="item">
+          <div class="header">
+            Model
+          </div>
+          <div class="description" id="field-model"><%= device.model %></div>
+        </div>
+
+        <div class="item">
+          <div class="header">
+            Operating System
+          </div>
+          <div class="description" id="field-os"><%= getLabel(display.OS, device.os) %></div>
+        </div>
+
+        <div class="item">
+          <div class="header">
+            Users
+          </div>
+          <div class="description" id="field-users"><%= getLabels(display.USERS, device.users) %></div>
+        </div>
+
+        <div class="item">
+          <div class="header">
+            Date
+          </div>
+          <div class="description" id="field-date"><%= device.date %></div>
+        </div>
+
+    </div>
+  <% } %>
+</div>
+<div class="ui equal width grid">
+  <div class="six wide column field">
+    <a class="ui teal labeled icon button" id="link-undo" href="/devices">Back to Listing<i class="large table icon"></i></a>
+  </div>
+  <div class="six wide column right floated field ">
+    <a class="ui teal labeled icon button" id="link-edit" href=<%= `/devices/${device.id}/edit` %> >Edit<i class="large write icon"></i></a>
+  </div>
+</div>

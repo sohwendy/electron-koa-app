@@ -16,3 +16,5 @@
 } %>
 
 <% getValue = function(value) { return value || '' } %>
+<% getPhotoUrl = function(value) { return value.path || "/images/missing.png"; } %>
+<% getPhotoName = function(value) { return value.filename || "No file selected"; } %>

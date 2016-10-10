@@ -1,0 +1,21 @@
+[
+  {
+    "id": "0",
+    "name": "name 1",
+    "brand": "apple",
+    "model": "model",
+    "os": "ios",
+    "users": ["demo", "project"],
+    "file": {},
+    "date": "25 Sept 2016"
+  }, {
+    "id": "1",
+    "name": "name 2",
+    "brand": "lg",
+    "model": "model 2",
+    "os": "android",
+    "users": ["demo", "project"],
+    "file": {},
+    "date": "26 Sept 2016"
+  }
+]

@@ -1,0 +1,17 @@
+<h1>Add New Device</h1>
+
+<form id="device-form" class="ui fluid form" action="/devices/create" method="post" enctype="multipart/form-data">
+  <% include helper.html %>
+  <% include _form.html %>
+  <div class="ui equal width grid">
+    <div class="four wide column field">
+      <a class="ui teal labeled icon button" id="link-undo" href="/devices"><i class="large reply icon"></i>Cancel</a>
+    </div>
+    <div class="four wide column right floated field ">
+      <button class="ui teal labeled icon button" id="link-submit" type="submit"><i class="large send icon"></i>Submit</button>
+    </div>
+  </div>
+  <div class="ui error message"></div>
+</form>
+
+<script type="text/javascript" src="/validator.js"></script>

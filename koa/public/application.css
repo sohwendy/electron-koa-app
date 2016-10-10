@@ -1,0 +1,48 @@
+main {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+.container {
+    flex: 1 0 auto;
+}
+
+h1 {
+    padding-top: 40px;
+}
+
+div.table {
+    margin-top: 40px;
+    margin-bottom: 10px;
+    min-width: 100%
+}
+
+.button {
+    min-width: 200px;
+}
+
+.ui.text.container {
+    max-width: 1000px !important;
+}
+
+.inputfile {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0.0001;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+#photo-name {
+    padding: 0.67861429em 1em;
+    cursor: pointer; /* "hand" cursor */
+    vertical-align: top;
+    text-align: left;
+    padding-left: 0.75em;
+}
+
+.inputfile + label {
+    width: 100%
+}

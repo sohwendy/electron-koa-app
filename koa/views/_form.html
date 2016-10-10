@@ -1,0 +1,62 @@
+<div class="field">
+  <label>Name</label>
+  <input type="text" id='field-name' placeholder="Name" name="name" value="<%= device.name %>" />
+</div>
+
+<div class="field">
+  <label>Brand</label>
+  <select name="brand" id='field-brand' class="ui selection dropdown">
+    <option value="">Select the Brand</option>
+    <% display.BRANDS.forEach(function(o){ %>
+    <option name="brand" value="<%= o.value %>" <% if(o.value==device.brand) { %> selected <% } %> ><%= o.label %> </option>
+    <% }) %>
+  </select>
+</div>
+
+<div class="field">
+  <label>Model</label>
+  <input type="text" id='field-model' placeholder="Model" name="model"  value="<%= device.model %>" />
+</div>
+
+<div class="grouped fields">
+  <label>Operating System</label>
+  <% display.OS.forEach(function(o){ %>
+    <% var id = `field-os-${o.value}`%>
+    <div class="field" id='field-os' >
+      <div class="ui radio checkbox">
+        <input type="radio" name="os" id="<%= id %>" value="<%= o.value %>" <% if(o.value==device.os) { %> checked="checked" <% } %> />
+        <label for="<%= id %>"><%= o.label %></label>
+      </div>
+    </div>
+  <% }) %>
+</div>
+
+<div class="grouped fields">
+  <label>Users</label>
+  <% display.USERS.forEach(function(user){ %>
+  <% var id=`field-users-${user.value}`%>
+    <div class="field">
+      <div class="ui checkbox" id='field-users' >
+        <input type="checkbox" name="users" id="<%= id %>" value="<%= user.value %>" <% if(device.users.indexOf(user.value) > -1 ){ %> checked <% } %> >
+        <label for="<%= id %>"><%= user.label %></label>
+      </div>
+    </div>
+  <% }) %>
+</div>
+
+<div class="field">
+  <label>Date</label>
+  <input name='date' id='field-date' type="text" placeholder="Date" value="<%= device.date %>" />
+</div>
+
+<div class="field">
+  <label >Photo</label>
+  <div>
+    <input class="inputfile huge" type="file" placeholder="Photo" name="photo" id="field-photo" accept="image/*">
+    <div class="ui labeled button">
+      <label id="photo-label" class="ui button labeled icon" for="field-photo"><i class="large attach icon"></i>Choose a file</label>
+    </div>
+    <label id="photo-name"><%= getPhotoName(device.file) %></label>
+  </div>
+</div>
+

@@ -1008,7 +1008,9 @@ $.fn.form = function(parameters) {
             }
             $.each(validation, function(fieldName, field) {
               identifier = field.identifier || fieldName;
-              if( module.get.field(identifier)[0] == $field[0] ) {
+              var $fields = module.get.field(identifier);
+
+              if ($fields.is($field[0])) {
                 field.identifier = identifier;
                 fieldValidation = field;
               }
@@ -1111,7 +1113,7 @@ $.fn.form = function(parameters) {
           prompt: function(identifier, errors) {
             var
               $field       = module.get.field(identifier),
-              $fieldGroup  = $field.closest($group),
+              $fieldGroup  =  $field.length > 1 ? $field.closest($group).parent() : $field.closest($group),
               $prompt      = $fieldGroup.children(selector.prompt),
               promptExists = ($prompt.length !== 0)
             ;
@@ -1163,7 +1165,7 @@ $.fn.form = function(parameters) {
           prompt: function(identifier) {
             var
               $field      = module.get.field(identifier),
-              $fieldGroup = $field.closest($group),
+              $fieldGroup  =  $field.length > 1 ? $field.closest($group).parent() : $field.closest($group),
               $prompt     = $fieldGroup.children(selector.prompt)
             ;
             $fieldGroup
@@ -2021,13 +2023,7 @@ $.fn.form.settings = {
     },
 
     minCount: function(value, minCount) {
-      if(minCount == 0) {
-        return true;
-      }
-      if(minCount == 1) {
-        return (value !== '');
-      }
-      return (value.split(',').length >= minCount);
+      return ($(this).filter(':checked').length >= minCount);
     },
 
     exactCount: function(value, exactCount) {
@@ -14181,18 +14177,18 @@ $.fn.search.settings = {
 
   // maps api response attributes to internal representation
   fields: {
-    categories      : 'results',     // array of categories (category views)
-    categoryName    : 'name',        // name of category (category views)
-    categoryResults : 'results',     // array of results (category views)
+    categories      : 'results',     // array of categories (category view)
+    categoryName    : 'name',        // name of category (category view)
+    categoryResults : 'results',     // array of results (category view)
     description     : 'description', // result description
     image           : 'image',       // result image
     price           : 'price',       // result price
     results         : 'results',     // array of results (standard)
     title           : 'title',       // result title
     url             : 'url',         // result url
-    action          : 'action',      // "views more" object name
-    actionText      : 'text',        // "views more" text
-    actionURL       : 'url'          // "views more" url
+    action          : 'action',      // "view more" object name
+    actionText      : 'text',        // "view more" text
+    actionURL       : 'url'          // "view more" url
   },
 
   selector : {
