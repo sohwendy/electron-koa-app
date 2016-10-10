@@ -1,8 +1,8 @@
 {
-  "name": "electron-quick-start",
-  "productName": "koa-in-electron",
+  "name": "koa-electron-app",
+  "productName": "BeanieX",
   "version": "1.0.0",
-  "description": "A minimal Electron application",
+  "description": "Just a sample app",
   "main": "main.js",
   "scripts": {
     "start": "electron main.js",
@@ -10,30 +10,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/electron/electron-quick-start.git"
+    "url": "git+https://github.com/sohwendy/electron-koa-app.git"
   },
-  "keywords": [
-    "Electron",
-    "quick",
-    "start",
-    "tutorial"
-  ],
   "author": "GitHub",
-  "license": "CC0-1.0",
-  "bugs": {
-    "url": "https://github.com/electron/electron-quick-start/issues"
-  },
-  "homepage": "https://github.com/electron/electron-quick-start#readme",
+  "license": "MIT",
+  "homepage": "https://github.com/sohwendy/electron-koa-app/#readme",
   "devDependencies": {
     "electron-packager": "^8.0.0",
     "electron-prebuilt": "^1.2.0",
     "express": "^4.14.0",
     "nodemon": "^1.10.2"
-  },
-  "dependencies": {
-    "ejs": "^2.5.2",
-    "koa": "^1.2.4",
-    "koa-router": "^5.4.0",
-    "koa-views": "^4.1.0"
   }
 }

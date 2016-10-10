@@ -59,7 +59,6 @@ router
 .get('/',
   function *(next) {
     devices = fs.readJsonSync(path.join(__dirname, 'data.json'), {throws: false});
-    console.log(devices)
     this.redirect('/devices');
   })
 .get('/devices',
